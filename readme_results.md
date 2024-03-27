@@ -1,7 +1,7 @@
 # Simulación: Caso Predador - Presa
 ## Algoritmos utilizados
 #### En este caso nos basamos en el siguiente diagrama de simulación para realizar el algoritmo en cada paso de la simulación:
-![Diagrama de Simulación]()
+![Diagrama de Simulación](https://github.com/lucho1991/modelsandsimulation_2024_tp1/assets/12039868/bdef5cbe-758c-4bb1-ad42-869625752ec0)
 #### Considerando que fue calculado con base en un caso ideal de 500 liebres (presa) y 10 zorros (predador).
 #### En esta simulación, hay ciertos parámetros que se dieron como supuestos a la hora de calcular la forma en que resultaban afectadas las distintas variables de la simulación, como lo es la tasa de mortalidad de los zorros si estos no tienen liebres para comer, que fue del 20% y la tasa de natalidad de las liebres que es del 8% siempre y cuando haya terreno para seguir ocupando y no hayan zorros que las cacen. Estos incrementos o reducciones en la población de zorros y liebres son considerados de una semana a la siguiente (una semana es el tiempo transcurrido entre iteraciones por defecto, a esto lo llamamos delta_t).
 
