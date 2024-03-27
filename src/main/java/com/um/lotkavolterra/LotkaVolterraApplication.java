@@ -78,7 +78,7 @@ public class LotkaVolterraApplication {
     double[] liebresArray = liebres.stream().mapToDouble(Integer::doubleValue).toArray();
     double[] zorrosArray = zorros.stream().mapToDouble(Integer::doubleValue).toArray();
 
-    XYChart chart = QuickChart.getChart("Diagrama de Fase", "Población de liebres", "Población de zorros", "Liebres vs Zorros", liebresArray,
+    XYChart chart = QuickChart.getChart("phase_diagram", "Población de liebres", "Población de zorros", "Liebres vs Zorros", liebresArray,
                                         zorrosArray);
 
     chart.getStyler().setYAxisDecimalPattern("#");
@@ -107,7 +107,7 @@ public class LotkaVolterraApplication {
     chart.getStyler().setYAxisDecimalPattern("#");
 
     try {
-      BitmapEncoder.saveBitmap(chart, "diagrama_de_fase", BitmapEncoder.BitmapFormat.PNG);
+      BitmapEncoder.saveBitmap(chart, "poblacional_diagram", BitmapEncoder.BitmapFormat.PNG);
       System.out.println("Diagrama poblacional guardado como imagen: diagrama_de_fase.png");
     } catch(IOException e) {
       System.err.println("Error al guardar el diagrama poblacional como imagen: " + e.getMessage());
