@@ -1,11 +1,12 @@
 package com.um.lotkavolterra;
 
+import org.knowm.xchart.BitmapEncoder;
 import org.knowm.xchart.QuickChart;
-import org.knowm.xchart.SwingWrapper;
 import org.knowm.xchart.XYChart;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -82,6 +83,14 @@ public class LotkaVolterraApplication {
     XYChart chart = QuickChart.getChart("Evolución de Liebres y Zorros", "Semanas", "Población", "Liebres", semanas, poblacionLiebres);
     chart.addSeries("Zorros", semanas, poblacionZorros);
 
-    new SwingWrapper<>(chart).displayChart();
+    try {
+      // Exportar el gráfico como una imagen
+      BitmapEncoder.saveBitmap(chart, "./chart", BitmapEncoder.BitmapFormat.PNG);
+      System.out.println("Gráfico exportado como imagen: chart.png");
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
+
+
 }
