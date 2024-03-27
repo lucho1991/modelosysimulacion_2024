@@ -50,7 +50,10 @@ public class LotkaVolterraApplication {
     }
 
     // Crear y mostrar el gráfico
-    displayChart(historialLiebres, historialZorros);
+    showPhaseDiagram(historialLiebres, historialZorros);
+
+    // Crea el diagrama poblacional
+    showPoblationalDiagram(historialLiebres, historialZorros, totalSemanas, deltaT);
   }
 
   public static int[] step(int cantZorros, int cantLiebres, double tasaNatalidadLiebres, double tasaMortalidadZorros, int capacidadTerreno,
@@ -71,26 +74,43 @@ public class LotkaVolterraApplication {
     return new int[]{nuevaCantLiebres, nuevaCantZorros};
   }
 
-  public static void displayChart(List<Integer> historialLiebres, List<Integer> historialZorros) {
-    double[] semanas = new double[historialLiebres.size()];
-    double[] poblacionLiebres = historialLiebres.stream().mapToDouble(Integer::doubleValue).toArray();
-    double[] poblacionZorros = historialZorros.stream().mapToDouble(Integer::doubleValue).toArray();
+  public static void showPhaseDiagram(List<Integer> liebres, List<Integer> zorros) {
+    double[] liebresArray = liebres.stream().mapToDouble(Integer::doubleValue).toArray();
+    double[] zorrosArray = zorros.stream().mapToDouble(Integer::doubleValue).toArray();
 
-    for (int i = 0; i < semanas.length; i++) {
-      semanas[i] = i;
-    }
+    XYChart chart = QuickChart.getChart("Diagrama de Fase", "Población de liebres", "Población de zorros", "Liebres vs Zorros", liebresArray,
+                                        zorrosArray);
 
-    XYChart chart = QuickChart.getChart("Evolución de Liebres y Zorros", "Semanas", "Población", "Liebres", semanas, poblacionLiebres);
-    chart.addSeries("Zorros", semanas, poblacionZorros);
+    chart.getStyler().setYAxisDecimalPattern("#");
 
     try {
-      // Exportar el gráfico como una imagen
-      BitmapEncoder.saveBitmap(chart, "./chart", BitmapEncoder.BitmapFormat.PNG);
-      System.out.println("Gráfico exportado como imagen: chart.png");
-    } catch (IOException e) {
-      e.printStackTrace();
+      BitmapEncoder.saveBitmap(chart, "phase_diagram", BitmapEncoder.BitmapFormat.PNG);
+      System.out.println("Diagrama de fase guardado como imagen: phase_diagram.png");
+    } catch(IOException e) {
+      System.err.println("Error al guardar el diagrama de fase como imagen: " + e.getMessage());
     }
   }
 
 
+  public static void showPoblationalDiagram(List<Integer> liebres, List<Integer> zorros, int totalSemanas, int deltaT) {
+    double[] semanasX = new double[totalSemanas / deltaT];
+    for(int i = 0; i < semanasX.length; i++) {
+      semanasX[i] = i * deltaT;
+    }
+
+    double[] liebresArray = liebres.stream().mapToDouble(Integer::doubleValue).toArray();
+    double[] zorrosArray = zorros.stream().mapToDouble(Integer::doubleValue).toArray();
+
+    XYChart chart = QuickChart.getChart("poblacional_diagram", "Tiempo en semanas", "Población", "Liebres", semanasX, liebresArray);
+    chart.addSeries("Zorros", semanasX, zorrosArray);
+
+    chart.getStyler().setYAxisDecimalPattern("#");
+
+    try {
+      BitmapEncoder.saveBitmap(chart, "diagrama_de_fase", BitmapEncoder.BitmapFormat.PNG);
+      System.out.println("Diagrama poblacional guardado como imagen: diagrama_de_fase.png");
+    } catch(IOException e) {
+      System.err.println("Error al guardar el diagrama poblacional como imagen: " + e.getMessage());
+    }
+  }
 }
