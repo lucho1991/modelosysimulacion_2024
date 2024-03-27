@@ -29,22 +29,25 @@ Los cálculos realizados son los siguientes:
 
 ### Prueba por defecto (2500 liebres y 2 zorros, tasa natalidad liebres: 0.8, tasa mortalidad zorros 0.2, capacidad terreno: 1400 liebres):
 
-![Diagrama Poblacional]()
-![Diagrama de Fase]()
+![default_phase_diagram](https://github.com/lucho1991/modelsandsimulation_2024_tp1/assets/12039868/f5d436c8-809e-40f5-9962-7de115b68792)
+![default_poblacional_diagram](https://github.com/lucho1991/modelsandsimulation_2024_tp1/assets/12039868/0f64796e-b123-4e66-809d-4405b4feaeec)
+
 
 En un inicio comenzamos con 2500 liebres, 2 zorros y una capacidad del terreno de 1400 liebres. A medida que pasa el tiempo la cantidad de liebres se va reduciendo, por qué estas están limitadas por el terreno y por qué, a su vez, están siendo cazadas por los zorros. A medida que sucede esto último, la cantidad de zorros se irá incrementando abruptamente, dado que tienen con que alimentarse. Sin embargo, al reducir la población de liebres debido a la caza, la población de zorros volverá a reducirse (por su taza de mortalidad). Luego de esto, como las liebres podrán reproducirse sin ningun problema (en esta circunstancia el terreno no estará lleno), su población aumentará y la de zorros se reducirá. A fin de cuentas, esto se repetirá de forma sucesiva hasta tender a lograr un punto de estabilidad o equilibrio para cada población, el cual podemos observar en el centro del diagrama de fase o al final del diagrama poblacional y es de aproximadamente 492 liebres y 25 zorros (considerar que esto es una tendencia dado que las poblaciones seguirían oscilando).
 
-### Prueba N°2 (500 liebres, 10 zorros, tasa natalidad liebres: 0.5, tasa mortalidad zorros 0.1, capacidad terreno: 1400 liebres):
+### Prueba N°1 (500 liebres, 10 zorros, tasa natalidad liebres: 0.5, tasa mortalidad zorros 0.1, capacidad terreno: 1400 liebres):
 
-![Diagrama Poblacional]()
-![Diagrama de Fase]()
+![1_poblacional_diagram](https://github.com/lucho1991/modelsandsimulation_2024_tp1/assets/12039868/e38f362c-af25-4dae-bfbf-f889ea99b95a)
+![1_phase_diagram](https://github.com/lucho1991/modelsandsimulation_2024_tp1/assets/12039868/165b0444-3024-46d8-ae06-6072971bc6b1)
+
 
 Considerando los parámetros iniciales, vemos que este caso tiene la particularidad de que, al finalizar las 500 semanas, la cantidad de zorros supera a la cantidad de liebres, esto no ocurre en el caso anterior. Podemos observar que, en un comienzo, las liebres empiezan a crecer constantemente, dado que tienen terreno disponible, hasta un aproximado de 1200 liebres. Por otro lado, los zorros empiezan a tener más encuentros con las liebres, dado al aumento de la variable caza, incrementado su población por tener con que alimentarse y reduciendo la de las liebres en consecuencia. Por último, vemos que, gracias a que la tasa de natalidad de liebres es mucho mayor a la tasa de mortalidad de zorros, los periodos donde a estos últimos les falte presas para cazar serán muy reducidos, tendiendo a lograr un punto de estabilidad o equilibrio para ambas poblaciones, y este es de 250 liebres y 205 zorros.
 
 
 ### Prueba N°2 (500 liebres, 10 zorros, tasa natalidad liebres: 0.1, tasa mortalidad zorros 0.5, capacidad terreno: 1400 liebres):
 
-![Diagrama Poblacional]()
-![Diagrama de Fase]()
+![2_poblacional_diagram](https://github.com/lucho1991/modelsandsimulation_2024_tp1/assets/12039868/fdabbf0b-8ff4-4b80-9706-c14420f8090c)
+![2_phase_diagram](https://github.com/lucho1991/modelsandsimulation_2024_tp1/assets/12039868/8db96028-9bed-402e-a6c4-79e6502ee4e5)
+
 
 En esta última simulación, vemos que los cambios o perturbaciones que se producen en las poblaciones son pocos, dado que podemos observar que se tiende a lograr la estabilidad rápidamente (1250 liebres y 5 zorros). En un principio las liebres crecen hasta ser limitadas por el tamaño del terreno (1400 liebres), para luego ser cazadas por los zorros. Sin embargo, el aumento en la población de zorros realmente es pequeño, y esto se debe a su alta tasa de mortalidad.
